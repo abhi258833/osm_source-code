@@ -1,0 +1,644 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< org.dspace:dspace-server-webapp >-------------------
+[INFO] Building DSpace Server Webapp 9.2
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.5.0:clean (default-clean) @ dspace-server-webapp ---
+[INFO] Deleting G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\target
+[INFO] 
+[INFO] --- enforcer:3.6.2:enforce (enforce-java) @ dspace-server-webapp ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.version.RequireJavaVersion passed
+[INFO] Rule 1: org.apache.maven.enforcer.rules.version.RequireMavenVersion passed
+[INFO] 
+[INFO] --- enforcer:3.6.2:enforce (enforce-versions) @ dspace-server-webapp ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.dependency.DependencyConvergence passed
+[INFO] 
+[INFO] --- enforcer:3.6.2:enforce (ban-dependencies) @ dspace-server-webapp ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.dependency.BannedDependencies passed
+[INFO] 
+[INFO] --- properties:1.2.1:read-project-properties (default) @ dspace-server-webapp ---
+[WARNING] Unknown properties resource extension: 'cfg' assume as: 'properties'
+[INFO] Loading 232 properties from File: G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\..\dspace\config\dspace.cfg
+[WARNING] Unknown properties resource extension: 'cfg' assume as: 'properties'
+[INFO] Loading 10 properties from File: G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\..\dspace\config\local.cfg
+[INFO] 
+[INFO] --- groovy:2.1.1:execute (setproperty) @ dspace-server-webapp ---
+[INFO] Initializing Maven property 'agnostic.build.dir' to: G:/onScreenMarkingProject/DSpace-dspace-9.2/dspace-server-webapp/target
+[INFO] 
+[INFO] --- resources:3.4.0:resources (default-resources) @ dspace-server-webapp ---
+[INFO] Copying 9 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- resources:3.4.0:testResources (testEnvironment) @ dspace-server-webapp ---
+[INFO] Copying 91 resources from src\test\resources to target\test-classes
+[INFO] 
+[INFO] --- resources:3.4.0:resources (webappFiltering) @ dspace-server-webapp ---
+[WARNING]  Parameter 'resources' is read-only, must not be used in configuration
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 7 resources from src\main\resources to target\classes
+[INFO] The encoding used to copy filtered properties files has not been set. This means that the same encoding will be used to copy filtered properties files as when copying other filtered resources. This might not be what you want! Run your build with --debug to see which files might be affected. Read more at https://maven.apache.org/plugins/maven-resources-plugin/examples/filtering-properties-files.html
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ dspace-server-webapp ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 951 source files with javac [forked debug release 17] to target\classes
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\link\process\SubmissionCCLicenseUrlResourceHalLinkFactory.java:[57,65] non-varargs call of varargs method with inexact argument type for last parameter;
+  cast to Object for a varargs call
+  cast to Object[] for a non-varargs call and to suppress this warning
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\security\WebSecurityConfiguration.java:[107,37] [removal] AntPathRequestMatcher in org.springframework.security.web.util.matcher has been deprecated and marked for removal
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\security\WebSecurityConfiguration.java:[144,42] [removal] AntPathRequestMatcher in org.springframework.security.web.util.matcher has been deprecated and marked for removal
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\security\StatelessLoginFilter.java:[60,18] [removal] AntPathRequestMatcher in org.springframework.security.web.util.matcher has been deprecated and marked for removal
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\AltchaCaptchaRestController.java:[166,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\AltchaCaptchaRestController.java:[167,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\AltchaCaptchaRestController.java:[171,55] [DefaultCharset] Implicit use of the platform default charset, which can result in differing behaviour between JVM executions or incorrect behavior if the encoding of the data source doesn't match expectations.
+    (see https://errorprone.info/bugpattern/DefaultCharset)
+  Did you mean 'byte[] hashBytes = sha256.digest(input.getBytes(UTF_8));' or 'byte[] hashBytes = sha256.digest(input.getBytes(Charset.defaultCharset()));'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\DiscoverableEndpointsService.java:[85,39] [UnusedVariable] The parameter 'controller' is never read.
+    (see https://errorprone.info/bugpattern/UnusedVariable)
+  Did you mean 'if (isLinkValid(link.getHref())) {'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\DiscoverableEndpointsService.java:[85,58] [UnusedVariable] The parameter 'href' is never read.
+    (see https://errorprone.info/bugpattern/UnusedVariable)
+  Did you mean 'if (isLinkValid(controller.getKey())) {'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\AssignedItemsRestController.java:[45,32] [UnusedVariable] The field 'ASSIGNED_USER_METADATA' is never read.
+    (see https://errorprone.info/bugpattern/UnusedVariable)
+  Did you mean to remove this line?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\converter\ConverterService.java:[109,20] [TypeParameterUnusedInFormals] Declaring a type parameter that is only used in the return type is a misuse of generics: operations on the type parameter are unchecked, it hides unsafe casts at invocations of the method, and it interacts badly with method overload resolution.
+    (see https://errorprone.info/bugpattern/TypeParameterUnusedInFormals)
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\converter\ConverterService.java:[113,23] [PatternMatchingInstanceof] This code can be simplified to use a pattern-matching instanceof.
+    (see https://errorprone.info/bugpattern/PatternMatchingInstanceof)
+  Did you mean 'if (restObject instanceof BaseObjectRest<?> baseObjectRest) {'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\converter\ConverterService.java:[128,23] [PatternMatchingInstanceof] This code can be simplified to use a pattern-matching instanceof.
+    (see https://errorprone.info/bugpattern/PatternMatchingInstanceof)
+  Did you mean 'if (restObject instanceof RestModel restModel) {'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\converter\ConverterService.java:[209,34] [JdkObsolete] It is very rare for LinkedList to out-perform ArrayList or ArrayDeque. Avoid it unless you're willing to invest a lot of time into benchmarking. Caveat: LinkedList supports null elements, but ArrayDeque does not.
+    (see https://errorprone.info/bugpattern/JdkObsolete)
+  Did you mean 'List<R> transformedList = new ArrayList<>();'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\converter\ConverterService.java:[233,34] [JdkObsolete] It is very rare for LinkedList to out-perform ArrayList or ArrayDeque. Avoid it unless you're willing to invest a lot of time into benchmarking. Caveat: LinkedList supports null elements, but ArrayDeque does not.
+    (see https://errorprone.info/bugpattern/JdkObsolete)
+  Did you mean 'List<R> transformedList = new ArrayList<>();'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\converter\ConverterService.java:[278,37] [TypeParameterUnusedInFormals] Declaring a type parameter that is only used in the return type is a misuse of generics: operations on the type parameter are unchecked, it hides unsafe casts at invocations of the method, and it interacts badly with method overload resolution.
+    (see https://errorprone.info/bugpattern/TypeParameterUnusedInFormals)
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\converter\ConverterService.java:[299,37] [TypeParameterUnusedInFormals] Declaring a type parameter that is only used in the return type is a misuse of generics: operations on the type parameter are unchecked, it hides unsafe casts at invocations of the method, and it interacts badly with method overload resolution.
+    (see https://errorprone.info/bugpattern/TypeParameterUnusedInFormals)
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\converter\ConverterService.java:[304,23] [PatternMatchingInstanceof] This code can be simplified to use a pattern-matching instanceof.
+    (see https://errorprone.info/bugpattern/PatternMatchingInstanceof)
+  Did you mean 'if (restObject instanceof RestAddressableModel restAddressableModel) {'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\converter\ConverterService.java:[339,38] [TypeParameterUnusedInFormals] Declaring a type parameter that is only used in the return type is a misuse of generics: operations on the type parameter are unchecked, it hides unsafe casts at invocations of the method, and it interacts badly with method overload resolution.
+    (see https://errorprone.info/bugpattern/TypeParameterUnusedInFormals)
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\utils\Utils.java:[165,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\utils\Utils.java:[167,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\utils\Utils.java:[182,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\utils\Utils.java:[184,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\utils\Utils.java:[253,17] [PatternMatchingInstanceof] This code can be simplified to use a pattern-matching instanceof.
+    (see https://errorprone.info/bugpattern/PatternMatchingInstanceof)
+  Did you mean 'if (data instanceof BaseObjectRest<?> baseObjectRest) {'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\utils\Utils.java:[263,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\utils\Utils.java:[264,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\utils\Utils.java:[277,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\utils\Utils.java:[278,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\utils\Utils.java:[342,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\utils\Utils.java:[353,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\utils\Utils.java:[354,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\utils\Utils.java:[353,7] [MissingSummary] A summary fragment is required; consider using the value of the @return block as a summary fragment instead.
+    (see https://google.github.io/styleguide/javaguide.html#s7.2-summary-fragment)
+  Did you mean '*Returns the LinkRest annotation corresponding to the specified rel in the rest class, or null if not found.'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\utils\Utils.java:[367,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\utils\Utils.java:[368,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\utils\Utils.java:[369,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\utils\Utils.java:[370,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\utils\Utils.java:[387,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\utils\Utils.java:[388,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\utils\Utils.java:[395,25] [UnnecessaryParentheses] These parentheses are unnecessary; it is unlikely the code will be misinterpreted without them
+    (see https://errorprone.info/bugpattern/UnnecessaryParentheses)
+  Did you mean 'String tempDir =  configurationService.hasProperty("upload.temp.dir")'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\utils\Utils.java:[419,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\utils\Utils.java:[420,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\utils\Utils.java:[427,51] [StringSplitter] String.split(String) has surprising behavior
+    (see https://errorprone.info/bugpattern/StringSplitter)
+  Did you mean 'List<String> parts = Splitter.on(Pattern.compile("[\\/]")).splitToList(originalFilename);'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\utils\Utils.java:[478,43] [JdkObsolete] It is very rare for LinkedList to out-perform ArrayList or ArrayDeque. Avoid it unless you're willing to invest a lot of time into benchmarking. Caveat: LinkedList supports null elements, but ArrayDeque does not.
+    (see https://errorprone.info/bugpattern/JdkObsolete)
+  Did you mean 'List<DSpaceObject> dSpaceObjects = new ArrayList<>();'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\utils\Utils.java:[507,28] [JdkObsolete] It is very rare for LinkedList to out-perform ArrayList or ArrayDeque. Avoid it unless you're willing to invest a lot of time into benchmarking. Caveat: LinkedList supports null elements, but ArrayDeque does not.
+    (see https://errorprone.info/bugpattern/JdkObsolete)
+  Did you mean 'List<String> list = new ArrayList<>();'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\utils\Utils.java:[508,26] [DefaultCharset] Implicit use of the platform default charset, which can result in differing behaviour between JVM executions or incorrect behavior if the encoding of the data source doesn't match expectations.
+    (see https://errorprone.info/bugpattern/DefaultCharset)
+  Did you mean 'Scanner scanner = new Scanner(request.getInputStream(), UTF_8);' or 'Scanner scanner = new Scanner(request.getInputStream(), Charset.defaultCharset());'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\utils\Utils.java:[541,7] [InvalidThrows] The documented method doesn't actually throw this checked exception.
+    (see https://errorprone.info/bugpattern/InvalidThrows)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\utils\Utils.java:[553,37] [TypeParameterUnusedInFormals] Declaring a type parameter that is only used in the return type is a misuse of generics: operations on the type parameter are unchecked, it hides unsafe casts at invocations of the method, and it interacts badly with method overload resolution.
+    (see https://errorprone.info/bugpattern/TypeParameterUnusedInFormals)
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\utils\Utils.java:[651,50] [StringSplitter] String.split(String) has surprising behavior
+    (see https://errorprone.info/bugpattern/StringSplitter)
+  Did you mean 'for (String value : Splitter.on(',').split(rawValue)) {'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\utils\Utils.java:[883,25] [PatternMatchingInstanceof] This code can be simplified to use a pattern-matching instanceof.
+    (see https://errorprone.info/bugpattern/PatternMatchingInstanceof)
+  Did you mean 'if (linkedObject instanceof RestAddressableModel restObject) {'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\utils\Utils.java:[946,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\utils\Utils.java:[947,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\utils\Utils.java:[948,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\utils\Utils.java:[1049,35] [StringSplitter] String.split(String) has surprising behavior
+    (see https://errorprone.info/bugpattern/StringSplitter)
+  Did you mean 'List<String> split = Splitter.on('.').splitToList(type);'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\model\RestAddressableModel.java:[49,4] [NotJavadoc] Avoid using `/**` for comments which aren't actually Javadoc.
+    (see https://errorprone.info/bugpattern/NotJavadoc)
+  Did you mean '/*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\model\MetadataRest.java:[68,22] [PatternMatchingInstanceof] This code can be simplified to use a pattern-matching instanceof.
+    (see https://errorprone.info/bugpattern/PatternMatchingInstanceof)
+  Did you mean 'return object instanceof MetadataRest<?> metadataRest && metadataRest.getMap().equals(map);'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\model\ErrorRest.java:[42,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\model\ErrorRest.java:[46,25] [JdkObsolete] It is very rare for LinkedList to out-perform ArrayList or ArrayDeque. Avoid it unless you're willing to invest a lot of time into benchmarking. Caveat: LinkedList supports null elements, but ArrayDeque does not.
+    (see https://errorprone.info/bugpattern/JdkObsolete)
+  Did you mean 'this.paths = new ArrayList<String>();'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\model\hateoas\HALResource.java:[34,31] [UnusedVariable] The field 'pageHeader' is never read.
+    (see https://errorprone.info/bugpattern/UnusedVariable)
+  Did you mean to remove this line?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\model\hateoas\HALResource.java:[59,44] [UnnecessaryParentheses] These parentheses are unnecessary; it is unlikely the code will be misinterpreted without them
+    (see https://errorprone.info/bugpattern/UnnecessaryParentheses)
+  Did you mean 'if (!list.stream().anyMatch( l -> StringUtils.equalsIgnoreCase(l.getName(), name))) {'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\model\hateoas\EmbeddedPageHeader.java:[119,14] [ClassCanBeStatic] Inner class is non-static but does not reference enclosing class
+    (see https://errorprone.info/bugpattern/ClassCanBeStatic)
+  Did you mean 'protected static class Href {'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\repository\DSpaceRestRepository.java:[115,4] [NotJavadoc] Avoid using `/**` for comments which aren't actually Javadoc.
+    (see https://errorprone.info/bugpattern/NotJavadoc)
+  Did you mean '/*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\repository\DSpaceRestRepository.java:[124,4] [NotJavadoc] Avoid using `/**` for comments which aren't actually Javadoc.
+    (see https://errorprone.info/bugpattern/NotJavadoc)
+  Did you mean '/*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\repository\DSpaceRestRepository.java:[151,4] [NotJavadoc] Avoid using `/**` for comments which aren't actually Javadoc.
+    (see https://errorprone.info/bugpattern/NotJavadoc)
+  Did you mean '/*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\repository\DSpaceRestRepository.java:[160,4] [NotJavadoc] Avoid using `/**` for comments which aren't actually Javadoc.
+    (see https://errorprone.info/bugpattern/NotJavadoc)
+  Did you mean '/*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\repository\DSpaceRestRepository.java:[168,4] [NotJavadoc] Avoid using `/**` for comments which aren't actually Javadoc.
+    (see https://errorprone.info/bugpattern/NotJavadoc)
+  Did you mean '/*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\repository\DSpaceRestRepository.java:[177,4] [NotJavadoc] Avoid using `/**` for comments which aren't actually Javadoc.
+    (see https://errorprone.info/bugpattern/NotJavadoc)
+  Did you mean '/*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\repository\DSpaceRestRepository.java:[187,4] [NotJavadoc] Avoid using `/**` for comments which aren't actually Javadoc.
+    (see https://errorprone.info/bugpattern/NotJavadoc)
+  Did you mean '/*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\repository\DSpaceRestRepository.java:[190,4] [NotJavadoc] Avoid using `/**` for comments which aren't actually Javadoc.
+    (see https://errorprone.info/bugpattern/NotJavadoc)
+  Did you mean '/*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\repository\DSpaceRestRepository.java:[222,4] [NotJavadoc] Avoid using `/**` for comments which aren't actually Javadoc.
+    (see https://errorprone.info/bugpattern/NotJavadoc)
+  Did you mean '/*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\repository\DSpaceRestRepository.java:[230,4] [NotJavadoc] Avoid using `/**` for comments which aren't actually Javadoc.
+    (see https://errorprone.info/bugpattern/NotJavadoc)
+  Did you mean '/*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\repository\DSpaceRestRepository.java:[239,4] [NotJavadoc] Avoid using `/**` for comments which aren't actually Javadoc.
+    (see https://errorprone.info/bugpattern/NotJavadoc)
+  Did you mean '/*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\repository\DSpaceRestRepository.java:[247,4] [NotJavadoc] Avoid using `/**` for comments which aren't actually Javadoc.
+    (see https://errorprone.info/bugpattern/NotJavadoc)
+  Did you mean '/*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\repository\DSpaceRestRepository.java:[256,4] [NotJavadoc] Avoid using `/**` for comments which aren't actually Javadoc.
+    (see https://errorprone.info/bugpattern/NotJavadoc)
+  Did you mean '/*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\repository\DSpaceRestRepository.java:[264,4] [NotJavadoc] Avoid using `/**` for comments which aren't actually Javadoc.
+    (see https://errorprone.info/bugpattern/NotJavadoc)
+  Did you mean '/*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\repository\DSpaceRestRepository.java:[105,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\repository\DSpaceRestRepository.java:[213,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\repository\DSpaceRestRepository.java:[279,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\repository\DSpaceRestRepository.java:[358,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\repository\DSpaceRestRepository.java:[359,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\repository\DSpaceRestRepository.java:[378,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\repository\DSpaceRestRepository.java:[379,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\repository\DSpaceRestRepository.java:[395,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\repository\DSpaceRestRepository.java:[396,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\repository\DSpaceRestRepository.java:[410,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\repository\DSpaceRestRepository.java:[411,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\repository\DSpaceRestRepository.java:[428,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\repository\DSpaceRestRepository.java:[429,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\repository\DSpaceRestRepository.java:[432,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\repository\DSpaceRestRepository.java:[433,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\repository\DSpaceRestRepository.java:[434,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\repository\DSpaceRestRepository.java:[455,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\repository\DSpaceRestRepository.java:[456,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\repository\DSpaceRestRepository.java:[465,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\repository\DSpaceRestRepository.java:[466,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\repository\DSpaceRestRepository.java:[461,7] [ReturnFromVoid] Void methods should not have a @return tag.
+    (see https://errorprone.info/bugpattern/ReturnFromVoid)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\repository\DSpaceRestRepository.java:[494,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\repository\DSpaceRestRepository.java:[495,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\repository\DSpaceRestRepository.java:[496,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\repository\DSpaceRestRepository.java:[497,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\main\java\org\dspace\app\rest\repository\DSpaceRestRepository.java:[515,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[INFO] 
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ dspace-server-webapp ---
+[INFO] Copying 91 resources from src\test\resources to target\test-classes
+[INFO] 
+[INFO] --- xml:1.2.0:validate (validate-ALL-xml-and-xsl) @ dspace-server-webapp ---
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ dspace-server-webapp ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 349 source files with javac [forked debug release 17] to target\test-classes
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\oai\OAIpmhIT.java:[70,5] [removal] MockBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\oai\OAIpmhIT.java:[74,5] [removal] SpyBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\oai\OAIpmhIT.java:[82,5] [removal] SpyBean in org.springframework.boot.test.mock.mockito has been deprecated and marked for removal
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\bulkaccesscontrol\BulkAccessControlScriptIT.java:[109,22] [StringConcatToTextBlock] This string literal can be written more clearly as a text block
+    (see https://errorprone.info/bugpattern/StringConcatToTextBlock)
+  Did you mean 'String json = """'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\bulkaccesscontrol\BulkAccessControlScriptIT.java:[125,60] [JdkObsolete] It is very rare for LinkedList to out-perform ArrayList or ArrayDeque. Avoid it unless you're willing to invest a lot of time into benchmarking. Caveat: LinkedList supports null elements, but ArrayDeque does not.
+    (see https://errorprone.info/bugpattern/JdkObsolete)
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\bulkaccesscontrol\BulkAccessControlScriptIT.java:[163,22] [StringConcatToTextBlock] This string literal can be written more clearly as a text block
+    (see https://errorprone.info/bugpattern/StringConcatToTextBlock)
+  Did you mean 'String json = """'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\bulkaccesscontrol\BulkAccessControlScriptIT.java:[179,60] [JdkObsolete] It is very rare for LinkedList to out-perform ArrayList or ArrayDeque. Avoid it unless you're willing to invest a lot of time into benchmarking. Caveat: LinkedList supports null elements, but ArrayDeque does not.
+    (see https://errorprone.info/bugpattern/JdkObsolete)
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\bulkaccesscontrol\BulkAccessControlScriptIT.java:[225,22] [StringConcatToTextBlock] This string literal can be written more clearly as a text block
+    (see https://errorprone.info/bugpattern/StringConcatToTextBlock)
+  Did you mean 'String json = """'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\bulkaccesscontrol\BulkAccessControlScriptIT.java:[241,60] [JdkObsolete] It is very rare for LinkedList to out-perform ArrayList or ArrayDeque. Avoid it unless you're willing to invest a lot of time into benchmarking. Caveat: LinkedList supports null elements, but ArrayDeque does not.
+    (see https://errorprone.info/bugpattern/JdkObsolete)
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\bulkaccesscontrol\BulkAccessControlScriptIT.java:[292,22] [StringConcatToTextBlock] This string literal can be written more clearly as a text block
+    (see https://errorprone.info/bugpattern/StringConcatToTextBlock)
+  Did you mean 'String json = """'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\bulkaccesscontrol\BulkAccessControlScriptIT.java:[308,60] [JdkObsolete] It is very rare for LinkedList to out-perform ArrayList or ArrayDeque. Avoid it unless you're willing to invest a lot of time into benchmarking. Caveat: LinkedList supports null elements, but ArrayDeque does not.
+    (see https://errorprone.info/bugpattern/JdkObsolete)
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\bulkaccesscontrol\BulkAccessControlScriptIT.java:[365,22] [StringConcatToTextBlock] This string literal can be written more clearly as a text block
+    (see https://errorprone.info/bugpattern/StringConcatToTextBlock)
+  Did you mean 'String json = """'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\bulkaccesscontrol\BulkAccessControlScriptIT.java:[381,60] [JdkObsolete] It is very rare for LinkedList to out-perform ArrayList or ArrayDeque. Avoid it unless you're willing to invest a lot of time into benchmarking. Caveat: LinkedList supports null elements, but ArrayDeque does not.
+    (see https://errorprone.info/bugpattern/JdkObsolete)
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\bulkaccesscontrol\BulkAccessControlScriptIT.java:[467,22] [StringConcatToTextBlock] This string literal can be written more clearly as a text block
+    (see https://errorprone.info/bugpattern/StringConcatToTextBlock)
+  Did you mean 'String json = """'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\bulkaccesscontrol\BulkAccessControlScriptIT.java:[481,60] [JdkObsolete] It is very rare for LinkedList to out-perform ArrayList or ArrayDeque. Avoid it unless you're willing to invest a lot of time into benchmarking. Caveat: LinkedList supports null elements, but ArrayDeque does not.
+    (see https://errorprone.info/bugpattern/JdkObsolete)
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\rest\test\AbstractControllerIntegrationTest.java:[196,12] [CatchAndPrintStackTrace] Logging or rethrowing exceptions should usually be preferred to catching and calling printStackTrace
+    (see https://errorprone.info/bugpattern/CatchAndPrintStackTrace)
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\rest\test\AbstractControllerIntegrationTest.java:[346,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\rest\test\AbstractControllerIntegrationTest.java:[346,7] [InvalidThrows] The documented method doesn't actually throw this checked exception.
+    (see https://errorprone.info/bugpattern/InvalidThrows)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\itemexport\ItemExportIT.java:[169,22] [UnusedVariable] The local variable 'bitstream' is never read.
+    (see https://errorprone.info/bugpattern/UnusedVariable)
+  Did you mean to remove this line or 'BitstreamBuilder.createBitstream(context, item, is)'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\itemexport\ItemExportIT.java:[118,13] [UnusedVariable] The local variable 'item1' is never read.
+    (see https://errorprone.info/bugpattern/UnusedVariable)
+  Did you mean to remove this line or 'ItemBuilder.createItem(context, collection)'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\itemexport\ItemExportIT.java:[123,13] [UnusedVariable] The local variable 'item2' is never read.
+    (see https://errorprone.info/bugpattern/UnusedVariable)
+  Did you mean to remove this line or 'ItemBuilder.createItem(context, collection)'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\itemexport\ItemExportIT.java:[263,22] [UnusedVariable] The local variable 'bitstream' is never read.
+    (see https://errorprone.info/bugpattern/UnusedVariable)
+  Did you mean to remove this line or 'BitstreamBuilder.createBitstream(context, item, is)'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\itemexport\ItemExportIT.java:[108,35] [StreamResourceLeak] Streams that encapsulate a closeable resource should be closed using try-with-resources
+    (see https://errorprone.info/bugpattern/StreamResourceLeak)
+  Did you mean 'try (Stream<Path> stream = Files.list(workDir)) {'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\itemexport\ItemExportIT.java:[130,60] [JdkObsolete] It is very rare for LinkedList to out-perform ArrayList or ArrayDeque. Avoid it unless you're willing to invest a lot of time into benchmarking. Caveat: LinkedList supports null elements, but ArrayDeque does not.
+    (see https://errorprone.info/bugpattern/JdkObsolete)
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\itemexport\ItemExportIT.java:[149,60] [JdkObsolete] It is very rare for LinkedList to out-perform ArrayList or ArrayDeque. Avoid it unless you're willing to invest a lot of time into benchmarking. Caveat: LinkedList supports null elements, but ArrayDeque does not.
+    (see https://errorprone.info/bugpattern/JdkObsolete)
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\itemexport\ItemExportIT.java:[176,60] [JdkObsolete] It is very rare for LinkedList to out-perform ArrayList or ArrayDeque. Avoid it unless you're willing to invest a lot of time into benchmarking. Caveat: LinkedList supports null elements, but ArrayDeque does not.
+    (see https://errorprone.info/bugpattern/JdkObsolete)
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\itemexport\ItemExportIT.java:[196,60] [JdkObsolete] It is very rare for LinkedList to out-perform ArrayList or ArrayDeque. Avoid it unless you're willing to invest a lot of time into benchmarking. Caveat: LinkedList supports null elements, but ArrayDeque does not.
+    (see https://errorprone.info/bugpattern/JdkObsolete)
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\itemexport\ItemExportIT.java:[220,60] [JdkObsolete] It is very rare for LinkedList to out-perform ArrayList or ArrayDeque. Avoid it unless you're willing to invest a lot of time into benchmarking. Caveat: LinkedList supports null elements, but ArrayDeque does not.
+    (see https://errorprone.info/bugpattern/JdkObsolete)
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\itemexport\ItemExportIT.java:[242,60] [JdkObsolete] It is very rare for LinkedList to out-perform ArrayList or ArrayDeque. Avoid it unless you're willing to invest a lot of time into benchmarking. Caveat: LinkedList supports null elements, but ArrayDeque does not.
+    (see https://errorprone.info/bugpattern/JdkObsolete)
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\itemexport\ItemExportIT.java:[270,60] [JdkObsolete] It is very rare for LinkedList to out-perform ArrayList or ArrayDeque. Avoid it unless you're willing to invest a lot of time into benchmarking. Caveat: LinkedList supports null elements, but ArrayDeque does not.
+    (see https://errorprone.info/bugpattern/JdkObsolete)
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\itemexport\ItemExportIT.java:[291,60] [JdkObsolete] It is very rare for LinkedList to out-perform ArrayList or ArrayDeque. Avoid it unless you're willing to invest a lot of time into benchmarking. Caveat: LinkedList supports null elements, but ArrayDeque does not.
+    (see https://errorprone.info/bugpattern/JdkObsolete)
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\itemexport\ItemExportIT.java:[302,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\itemexport\ItemExportIT.java:[310,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\itemexport\ItemExportIT.java:[311,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\itemexport\ItemExportIT.java:[317,75] [NonApiType] Prefer a java.util.List instead. 
+    (see https://errorprone.info/bugpattern/NonApiType)
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\itemimport\ItemImportIT.java:[149,13] [UnusedVariable] The local variable 'person' is never read.
+    (see https://errorprone.info/bugpattern/UnusedVariable)
+  Did you mean to remove this line or 'ItemBuilder.createItem(context, collectionPerson)'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\itemimport\ItemImportIT.java:[115,35] [StreamResourceLeak] Streams that encapsulate a closeable resource should be closed using try-with-resources
+    (see https://errorprone.info/bugpattern/StreamResourceLeak)
+  Did you mean 'try (Stream<Path> stream = Files.list(workDir)) {'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\itemimport\ItemImportIT.java:[123,60] [JdkObsolete] It is very rare for LinkedList to out-perform ArrayList or ArrayDeque. Avoid it unless you're willing to invest a lot of time into benchmarking. Caveat: LinkedList supports null elements, but ArrayDeque does not.
+    (see https://errorprone.info/bugpattern/JdkObsolete)
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\itemimport\ItemImportIT.java:[154,60] [JdkObsolete] It is very rare for LinkedList to out-perform ArrayList or ArrayDeque. Avoid it unless you're willing to invest a lot of time into benchmarking. Caveat: LinkedList supports null elements, but ArrayDeque does not.
+    (see https://errorprone.info/bugpattern/JdkObsolete)
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\itemimport\ItemImportIT.java:[169,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\itemimport\ItemImportIT.java:[183,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\itemimport\ItemImportIT.java:[195,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\itemimport\ItemImportIT.java:[208,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\itemimport\ItemImportIT.java:[223,75] [NonApiType] Prefer a java.util.List instead. 
+    (see https://errorprone.info/bugpattern/NonApiType)
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\oai\OAIpmhIT.java:[276,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\opensearch\OpenSearchControllerIT.java:[358,13] [UnusedVariable] The local variable 'publicItem1' is never read.
+    (see https://errorprone.info/bugpattern/UnusedVariable)
+  Did you mean to remove this line or 'ItemBuilder.createItem(context, collection1)'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\opensearch\OpenSearchControllerIT.java:[106,13] [UnusedVariable] The local variable 'publicItem1' is never read.
+    (see https://errorprone.info/bugpattern/UnusedVariable)
+  Did you mean to remove this line or 'ItemBuilder.createItem(context, col1)'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\opensearch\OpenSearchControllerIT.java:[363,13] [UnusedVariable] The local variable 'publicItem2' is never read.
+    (see https://errorprone.info/bugpattern/UnusedVariable)
+  Did you mean to remove this line or 'ItemBuilder.createItem(context, collection1)'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\opensearch\OpenSearchControllerIT.java:[111,13] [UnusedVariable] The local variable 'publicItem2' is never read.
+    (see https://errorprone.info/bugpattern/UnusedVariable)
+  Did you mean to remove this line or 'ItemBuilder.createItem(context, col1)'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\opensearch\OpenSearchControllerIT.java:[304,13] [UnusedVariable] The local variable 'publicItem1' is never read.
+    (see https://errorprone.info/bugpattern/UnusedVariable)
+  Did you mean to remove this line or 'ItemBuilder.createItem(context, collection1)'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\opensearch\OpenSearchControllerIT.java:[159,13] [UnusedVariable] The local variable 'publicItem1' is never read.
+    (see https://errorprone.info/bugpattern/UnusedVariable)
+  Did you mean to remove this line or 'ItemBuilder.createItem(context, col1)'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\opensearch\OpenSearchControllerIT.java:[329,13] [UnusedVariable] The local variable 'publicItem1' is never read.
+    (see https://errorprone.info/bugpattern/UnusedVariable)
+  Did you mean to remove this line or 'ItemBuilder.createItem(context, collection1)'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\opensearch\OpenSearchControllerIT.java:[334,13] [UnusedVariable] The local variable 'publicItem2' is never read.
+    (see https://errorprone.info/bugpattern/UnusedVariable)
+  Did you mean to remove this line or 'ItemBuilder.createItem(context, collection1)'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\rest\ADSImportMetadataSourceServiceIT.java:[163,21] [NonApiType] Prefer a java.util.List instead. 
+    (see https://errorprone.info/bugpattern/NonApiType)
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\rest\AbstractLiveImportIntegrationTest.java:[30,3] [MissingSummary] A summary line is required on public/protected Javadocs.
+    (see https://google.github.io/styleguide/javaguide.html#s7.2-summary-fragment)
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\rest\AbstractLiveImportIntegrationTest.java:[34,56] [NonApiType] Prefer a java.util.List instead. 
+    (see https://errorprone.info/bugpattern/NonApiType)
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\rest\AbstractLiveImportIntegrationTest.java:[34,97] [NonApiType] Prefer a java.util.List instead. 
+    (see https://errorprone.info/bugpattern/NonApiType)
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\rest\AnonymousAdditionalAuthorizationFilterIT.java:[39,33] [MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+    (see https://errorprone.info/bugpattern/MutablePublicArray)
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\rest\AnonymousAdditionalAuthorizationFilterIT.java:[40,33] [MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+    (see https://errorprone.info/bugpattern/MutablePublicArray)
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\rest\AnonymousAdditionalAuthorizationFilterIT.java:[43,33] [MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+    (see https://errorprone.info/bugpattern/MutablePublicArray)
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\rest\AuthenticationRestControllerIT.java:[983,14] [UnusedVariable] The local variable 'reviewersGroup' is never read.
+    (see https://errorprone.info/bugpattern/UnusedVariable)
+  Did you mean to remove this line or 'GroupBuilder.createGroup(context)'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\rest\AuthenticationRestControllerIT.java:[1087,14] [UnusedVariable] The local variable 'reviewersGroup' is never read.
+    (see https://errorprone.info/bugpattern/UnusedVariable)
+  Did you mean to remove this line or 'GroupBuilder.createGroup(context)'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\rest\AuthenticationRestControllerIT.java:[1009,14] [UnusedVariable] The local variable 'reviewersGroup' is never read.
+    (see https://errorprone.info/bugpattern/UnusedVariable)
+  Did you mean to remove this line or 'GroupBuilder.createGroup(context)'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\rest\AuthenticationRestControllerIT.java:[202,14] [UnusedVariable] The local variable 'specialGroupPwd' is never read.
+    (see https://errorprone.info/bugpattern/UnusedVariable)
+  Did you mean to remove this line or 'GroupBuilder.createGroup(context)'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\rest\AuthenticationRestControllerIT.java:[1061,14] [UnusedVariable] The local variable 'reviewersGroup' is never read.
+    (see https://errorprone.info/bugpattern/UnusedVariable)
+  Did you mean to remove this line or 'GroupBuilder.createGroup(context)'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\rest\AuthenticationRestControllerIT.java:[205,14] [UnusedVariable] The local variable 'specialGroupIP' is never read.
+    (see https://errorprone.info/bugpattern/UnusedVariable)
+  Did you mean to remove this line or 'GroupBuilder.createGroup(context)'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\rest\AuthenticationRestControllerIT.java:[1035,14] [UnusedVariable] The local variable 'reviewersGroup' is never read.
+    (see https://errorprone.info/bugpattern/UnusedVariable)
+  Did you mean to remove this line or 'GroupBuilder.createGroup(context)'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\rest\AuthenticationRestControllerIT.java:[116,33] [MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+    (see https://errorprone.info/bugpattern/MutablePublicArray)
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\rest\AuthenticationRestControllerIT.java:[117,33] [MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+    (see https://errorprone.info/bugpattern/MutablePublicArray)
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\rest\AuthenticationRestControllerIT.java:[118,33] [MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+    (see https://errorprone.info/bugpattern/MutablePublicArray)
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\rest\AuthenticationRestControllerIT.java:[119,33] [MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+    (see https://errorprone.info/bugpattern/MutablePublicArray)
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\rest\AuthenticationRestControllerIT.java:[123,33] [MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+    (see https://errorprone.info/bugpattern/MutablePublicArray)
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\rest\AuthenticationRestControllerIT.java:[127,33] [MutablePublicArray] Non-empty arrays are mutable, so this `public static final` array is not a constant and can be modified by clients of this class.  Prefer an ImmutableList, or provide an accessor method that returns a defensive copy.
+    (see https://errorprone.info/bugpattern/MutablePublicArray)
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\rest\AuthenticationRestControllerIT.java:[196,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\rest\AuthenticationRestControllerIT.java:[628,39] [StringSplitter] String.split(String) has surprising behavior
+    (see https://errorprone.info/bugpattern/StringSplitter)
+  Did you mean 'List<String> jwtSplit = Splitter.on('.').splitToList(token);'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\rest\AuthenticationRestControllerIT.java:[631,26] [DefaultCharset] Implicit use of the platform default charset, which can result in differing behaviour between JVM executions or incorrect behavior if the encoding of the data source doesn't match expectations.
+    (see https://errorprone.info/bugpattern/DefaultCharset)
+  Did you mean '.getBytes()), UTF_8);' or '.getBytes()), Charset.defaultCharset());'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\rest\AuthenticationRestControllerIT.java:[635,25] [DefaultCharset] Implicit use of the platform default charset, which can result in differing behaviour between JVM executions or incorrect behavior if the encoding of the data source doesn't match expectations.
+    (see https://errorprone.info/bugpattern/DefaultCharset)
+  Did you mean '.getBytes(UTF_8)));' or '.getBytes(Charset.defaultCharset())));'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\rest\AuthenticationRestControllerIT.java:[632,12] [DefaultCharset] Implicit use of the platform default charset, which can result in differing behaviour between JVM executions or incorrect behavior if the encoding of the data source doesn't match expectations.
+    (see https://errorprone.info/bugpattern/DefaultCharset)
+  Did you mean 'token.split("\\.")[1]), UTF_8)' or 'token.split("\\.")[1]), Charset.defaultCharset())'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\rest\AuthenticationRestControllerIT.java:[633,27] [StringSplitter] String.split(String) has surprising behavior
+    (see https://errorprone.info/bugpattern/StringSplitter)
+  Did you mean 'Iterables.get(Splitter.on('.').split(token), 1)))'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\rest\AuthenticationRestControllerIT.java:[922,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\rest\AuthorizationFeatureRestRepositoryIT.java:[43,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\rest\AuthorizationFeatureRestRepositoryIT.java:[69,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\rest\AuthorizationFeatureRestRepositoryIT.java:[108,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\rest\AuthorizationFeatureRestRepositoryIT.java:[128,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\rest\AuthorizationFeatureServiceIT.java:[55,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\rest\AuthorizationFeatureServiceIT.java:[77,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\rest\AuthorizationFeatureServiceIT.java:[92,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\rest\AuthorizationFeatureServiceIT.java:[127,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\rest\AuthorizationRestRepositoryIT.java:[2509,17] [UnusedVariable] The local variable 'siteRest' is never read.
+    (see https://errorprone.info/bugpattern/UnusedVariable)
+  Did you mean to remove this line or 'siteConverter.convert(site, DefaultProjection.DEFAULT);'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\rest\AuthorizationRestRepositoryIT.java:[2419,17] [UnusedVariable] The local variable 'itemRest' is never read.
+    (see https://errorprone.info/bugpattern/UnusedVariable)
+  Did you mean to remove this line or 'itemConverter.convert(item, DefaultProjection.DEFAULT);'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\rest\AuthorizationRestRepositoryIT.java:[1632,15] [UnusedVariable] The local variable 'siteUri' is never read.
+    (see https://errorprone.info/bugpattern/UnusedVariable)
+  Did you mean to remove this line or 'utils.linkToSingleResource(siteRest, "self").getHref();'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\rest\AuthorizationRestRepositoryIT.java:[2638,17] [UnusedVariable] The local variable 'invalidUris' is never read.
+    (see https://errorprone.info/bugpattern/UnusedVariable)
+  Did you mean to remove this line?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\rest\AuthorizationRestRepositoryIT.java:[2422,17] [UnusedVariable] The local variable 'secondItemRest' is never read.
+    (see https://errorprone.info/bugpattern/UnusedVariable)
+  Did you mean to remove this line or 'itemConverter.convert(secondItem, DefaultProjection.DEFAULT);'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\rest\AuthorizationRestRepositoryIT.java:[2922,14] [UnusedVariable] The local variable 'testGroup' is never read.
+    (see https://errorprone.info/bugpattern/UnusedVariable)
+  Did you mean to remove this line or 'GroupBuilder.createGroup(context).withName(TrueForUsersInGroupTestFeature.GROUP_NAME)'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\rest\AuthorizationRestRepositoryIT.java:[156,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\rest\AuthorizationRestRepositoryIT.java:[170,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\rest\AuthorizationRestRepositoryIT.java:[212,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\rest\AuthorizationRestRepositoryIT.java:[235,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\rest\AuthorizationRestRepositoryIT.java:[271,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[WARNING] G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\src\test\java\org\dspace\app\rest\AuthorizationRestRepositoryIT.java:[358,7] [EmptyBlockTag] A block tag (@param, @return, @throws, @deprecated) has an empty description. Block tags without descriptions don't add much value for future readers of the code; consider removing the tag entirely or adding a description.
+    (see https://google.github.io/styleguide/javaguide.html#s7.1.3-javadoc-block-tags)
+  Did you mean '*'?
+[INFO] 
+[INFO] --- surefire:3.5.4:test (default-test) @ dspace-server-webapp ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- jar:3.5.0:jar (default-jar) @ dspace-server-webapp ---
+[INFO] Building jar: G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\target\dspace-server-webapp-9.2.jar
+[INFO] 
+[INFO] --- jar:3.5.0:test-jar (default) @ dspace-server-webapp ---
+[INFO] Building jar: G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp\target\dspace-server-webapp-9.2-tests.jar
+[INFO] 
+[INFO] --- license:3.0:check (check-headers) @ dspace-server-webapp ---
+[INFO] Checking licenses...
+[INFO] 
+[INFO] --- checkstyle:3.6.0:check (verify-style) @ dspace-server-webapp ---
+[INFO] There are 11 errors reported by Checkstyle 10.26.1 with G:\onScreenMarkingProject\DSpace-dspace-9.2\dspace-server-webapp/../checkstyle.xml ruleset.
+[ERROR] src\main\java\org\dspace\app\rest\AssignedItemsRestController.java:[91] (regexp) RegexpSingleline: Line has trailing whitespace
+[ERROR] src\main\java\org\dspace\app\rest\AssignedItemsRestController.java:[93] (regexp) RegexpSingleline: Line has trailing whitespace
+[ERROR] src\main\java\org\dspace\app\rest\AssignedItemsRestController.java:[98] (regexp) RegexpSingleline: Line has trailing whitespace
+[ERROR] src\main\java\org\dspace\app\rest\AssignedItemsRestController.java:[103] (regexp) RegexpSingleline: Line has trailing whitespace
+[ERROR] src\main\java\org\dspace\app\rest\AssignedItemsRestController.java:[105] (regexp) RegexpSingleline: Line has trailing whitespace
+[ERROR] src\main\java\org\dspace\app\rest\AssignedItemsRestController.java:[110] (regexp) RegexpSingleline: Line has trailing whitespace
+[ERROR] src\main\java\org\dspace\app\rest\AssignedItemsRestController.java:[118] (regexp) RegexpSingleline: Line has trailing whitespace
+[ERROR] src\main\java\org\dspace\app\rest\AssignedItemsRestController.java:[122] (regexp) RegexpSingleline: Line has trailing whitespace
+[ERROR] src\main\java\org\dspace\app\rest\AssignedItemsRestController.java:[178] (regexp) RegexpSingleline: Line has trailing whitespace
+[ERROR] src\main\java\org\dspace\app\rest\AssignedItemsRestController.java:[183] (regexp) RegexpSingleline: Line has trailing whitespace
+[ERROR] src\main\java\org\dspace\app\rest\AssignedItemsRestController.java:[188] (regexp) RegexpSingleline: Line has trailing whitespace
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  02:54 min
+[INFO] Finished at: 2026-04-06T15:28:31+05:30
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-checkstyle-plugin:3.6.0:check (verify-style) on project dspace-server-webapp: You have 11 Checkstyle violations. -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
