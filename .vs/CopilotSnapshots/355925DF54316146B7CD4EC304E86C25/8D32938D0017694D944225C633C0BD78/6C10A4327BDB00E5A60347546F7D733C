@@ -1,0 +1,76 @@
+﻿/**
+ * The contents of this file are subject to the license and copyright
+ * detailed in the LICENSE and NOTICE files at the root of the source
+ * tree and available online at
+ *
+ * http://www.dspace.org/license/
+ */
+package org.dspace.content.service;
+
+import java.sql.SQLException;
+import java.util.List;
+import java.util.UUID;
+
+import org.dspace.content.Collection;
+import org.dspace.content.Item;
+import org.dspace.core.Context;
+
+/**
+ * Service interface for managing assigned items to users
+ *
+ * @author DSpace Developer
+ */
+public interface AssignedItemService {
+
+    /**
+     * Find all items assigned to a specific user by their email
+     *
+     * @param context the DSpace context
+     * @param userEmail the email of the user
+     * @param limit the maximum number of results (optional, pass null for all)
+     * @param offset the offset for pagination
+     * @return list of items assigned to the user
+     * @throws SQLException if a database error occurs
+     */
+    List<Item> findItemsAssignedToUser(Context context, String userEmail, Integer limit, Integer offset)
+            throws SQLException;
+
+    /**
+     * Count total number of items assigned to a specific user
+     *
+     * @param context the DSpace context
+     * @param userEmail the email of the user
+     * @return total count of assigned items
+     * @throws SQLException if a database error occurs
+     */
+    int countItemsAssignedToUser(Context context, String userEmail) throws SQLException;
+
+    /**
+     * Assign items in a collection to users equally
+     *
+     * @param context the DSpace context
+     * @param collection the collection containing items
+     * @param userEmails list of user email addresses to assign items to
+     * @throws SQLException if a database error occurs
+     */
+    void assignItemsToUsers(Context context, Collection collection, List<String> userEmails) throws SQLException;
+
+    /**
+     * Assign a specific item to a user
+     *
+     * @param context the DSpace context
+     * @param item the item to assign
+     * @param userEmail the email of the user to assign to
+     * @throws SQLException if a database error occurs
+     */
+    void assignItemToUser(Context context, Item item, String userEmail) throws SQLException;
+
+    /**
+     * Remove assignment of an item from all users
+     *
+     * @param context the DSpace context
+     * @param item the item to unassign
+     * @throws SQLException if a database error occurs
+     */
+    void unassignItem(Context context, Item item) throws SQLException;
+}

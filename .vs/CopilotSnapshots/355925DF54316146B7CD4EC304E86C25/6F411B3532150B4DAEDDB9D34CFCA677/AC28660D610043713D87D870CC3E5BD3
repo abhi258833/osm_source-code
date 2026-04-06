@@ -1,0 +1,71 @@
+﻿/**
+ * The contents of this file are subject to the license and copyright
+ * detailed in the LICENSE and NOTICE files at the root of the source
+ * tree and available online at
+ *
+ * http://www.dspace.org/license/
+ */
+package org.dspace.app.util;
+
+import java.util.List;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.dspace.content.Item;
+import org.dspace.core.Context;
+import org.dspace.discovery.IndexingService;
+import org.dspace.discovery.SearchServiceException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+/**
+ * Utility class for indexing assigned items
+ *
+ * @author DSpace Developer
+ */
+@Component
+public class AssignedItemIndexingUtil {
+
+    private static final Logger log = LogManager.getLogger(AssignedItemIndexingUtil.class);
+
+    @Autowired
+    private IndexingService indexingService;
+
+    /**
+     * Reindex a list of items after assignment changes
+     *
+     * @param context the DSpace context
+     * @param items list of items to reindex
+     * @throws SearchServiceException if indexing fails
+     */
+    public void reindexItems(Context context, List<Item> items) throws SearchServiceException {
+        if (items == null || items.isEmpty()) {
+            log.debug("No items to reindex");
+            return;
+        }
+
+        for (Item item : items) {
+            reindexItem(context, item);
+        }
+        log.info("Successfully reindexed " + items.size() + " items");
+    }
+
+    /**
+     * Reindex a single item after assignment changes
+     *
+     * @param context the DSpace context
+     * @param item the item to reindex
+     * @throws SearchServiceException if indexing fails
+     */
+    public void reindexItem(Context context, Item item) throws SearchServiceException {
+        try {
+            indexingService.reindex(context, (org.dspace.discovery.IndexableObject) item);
+            log.debug("Reindexed item: " + item.getID());
+        } catch (Exception e) {
+            log.error("Error reindexing item: " + item.getID(), e);
+            if (e instanceof SearchServiceException) {
+                throw (SearchServiceException) e;
+            }
+        }
+    }
+}

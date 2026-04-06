@@ -1,0 +1,21 @@
+--
+-- The contents of this file are subject to the license and copyright
+-- detailed in the LICENSE and NOTICE files at the root of the source
+-- tree and available online at
+--
+-- http://www.dspace.org/license/
+--
+
+-- SQL migration to create dc.assigned.user metadata field
+-- This ensures the metadata field exists in the registry
+
+INSERT INTO metadatafieldregistry (metadata_schema_id, element, qualifier, scope_note)
+SELECT ms.metadata_schema_id, 'assigned', 'user', 'Email of user to whom this item is assigned'
+FROM metadataschemaregistry ms
+WHERE ms.short_id = 'dc'
+  AND NOT EXISTS (
+    SELECT 1 FROM metadatafieldregistry mfr
+    WHERE mfr.metadata_schema_id = ms.metadata_schema_id
+      AND mfr.element = 'assigned'
+      AND mfr.qualifier = 'user'
+  );

@@ -1,0 +1,182 @@
+﻿/**
+ * The contents of this file are subject to the license and copyright
+ * detailed in the LICENSE and NOTICE files at the root of the source
+ * tree and available online at
+ *
+ * http://www.dspace.org/license/
+ */
+package org.dspace.content;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.UUID;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.dspace.app.util.AssignedItemIndexingUtil;
+import org.dspace.content.dao.ItemDAO;
+import org.dspace.content.service.AssignedItemService;
+import org.dspace.content.service.ItemService;
+import org.dspace.core.Context;
+import org.dspace.discovery.DiscoverQuery;
+import org.dspace.discovery.DiscoverResult;
+import org.dspace.discovery.SearchService;
+import org.dspace.discovery.SearchServiceException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+/**
+ * Implementation of AssignedItemService
+ *
+ * @author DSpace Developer
+ */
+@Service
+public class AssignedItemServiceImpl implements AssignedItemService {
+
+    private static final Logger log = LogManager.getLogger(AssignedItemServiceImpl.class);
+
+    private static final String ASSIGNED_USER_METADATA = "dc.assigned.user";
+    private static final String METADATA_SCHEMA = "dc";
+    private static final String METADATA_ELEMENT = "assigned";
+    private static final String METADATA_QUALIFIER = "user";
+
+    @Autowired
+    private ItemService itemService;
+
+    @Autowired
+    private ItemDAO itemDAO;
+
+    @Autowired
+    private SearchService searchService;
+
+    @Autowired(required = false)
+    private AssignedItemIndexingUtil indexingUtil;
+
+    @Override
+    public List<Item> findItemsAssignedToUser(Context context, String userEmail, Integer limit, Integer offset)
+            throws SQLException {
+        List<Item> items = new ArrayList<>();
+
+        if (limit == null) {
+            limit = Integer.MAX_VALUE;
+        }
+        if (offset == null) {
+            offset = 0;
+        }
+
+        try {
+            DiscoverQuery query = new DiscoverQuery();
+            query.addFilterQueries(ASSIGNED_USER_METADATA + ":\"" + userEmail + "\"");
+            query.setStart(offset);
+            query.setMaxResults(limit);
+
+            DiscoverResult result = searchService.search(context, query);
+            List<String> itemIds = result.getIndexableObjects();
+
+            for (String itemId : itemIds) {
+                Item item = itemService.find(context, UUID.fromString(itemId));
+                if (item != null) {
+                    items.add(item);
+                }
+            }
+
+            log.debug("Found " + items.size() + " items assigned to user: " + userEmail);
+        } catch (SearchServiceException e) {
+            log.error("Error searching for items assigned to user: " + userEmail, e);
+            throw new RuntimeException("Error searching for assigned items", e);
+        }
+
+        return items;
+    }
+
+    @Override
+    public int countItemsAssignedToUser(Context context, String userEmail) throws SQLException {
+        try {
+            DiscoverQuery query = new DiscoverQuery();
+            query.addFilterQueries(ASSIGNED_USER_METADATA + ":\"" + userEmail + "\"");
+            query.setMaxResults(0);
+
+            DiscoverResult result = searchService.search(context, query);
+            return (int) result.getTotalSearchResults();
+        } catch (SearchServiceException e) {
+            log.error("Error counting items assigned to user: " + userEmail, e);
+            throw new RuntimeException("Error counting assigned items", e);
+        }
+    }
+
+    @Override
+    public void assignItemsToUsers(Context context, Collection collection, List<String> userEmails)
+            throws SQLException {
+        if (userEmails == null || userEmails.isEmpty()) {
+            throw new IllegalArgumentException("User emails list cannot be null or empty");
+        }
+
+        try {
+            Iterator<Item> items = itemService.findByCollection(context, collection);
+            List<Item> itemList = new ArrayList<>();
+            items.forEachRemaining(itemList::add);
+
+            int userCount = userEmails.size();
+            int itemsPerUser = itemList.size() / userCount;
+            int remainder = itemList.size() % userCount;
+
+            int currentUserIndex = 0;
+            int itemsForCurrentUser = itemsPerUser + (remainder > 0 ? 1 : 0);
+            int itemsAssigned = 0;
+
+            for (Item item : itemList) {
+                if (itemsAssigned == itemsForCurrentUser) {
+                    currentUserIndex++;
+                    remainder--;
+                    itemsForCurrentUser = itemsPerUser + (remainder > 0 ? 1 : 0);
+                    itemsAssigned = 0;
+                }
+
+                String userEmail = userEmails.get(currentUserIndex);
+                assignItemToUser(context, item, userEmail);
+                itemsAssigned++;
+
+                log.debug("Assigned item " + item.getID() + " to user: " + userEmail);
+            }
+
+            log.info("Successfully assigned " + itemList.size() + " items to " + userCount + " users in collection: "
+                    + collection.getID());
+        } catch (Exception e) {
+            log.error("Error during batch assignment of items to users", e);
+            throw new RuntimeException("Error during batch assignment", e);
+        }
+    }
+
+    @Override
+    public void assignItemToUser(Context context, Item item, String userEmail) throws SQLException {
+        try {
+            // Remove existing assignments
+            itemService.clearMetadata(context, item, METADATA_SCHEMA, METADATA_ELEMENT, METADATA_QUALIFIER, null);
+
+            // Add new assignment
+            itemService.addMetadata(context, item, METADATA_SCHEMA, METADATA_ELEMENT, METADATA_QUALIFIER, null,
+                    userEmail);
+            itemService.update(context, item);
+
+            log.debug("Item " + item.getID() + " assigned to user: " + userEmail);
+        } catch (Exception e) {
+            log.error("Error assigning item to user: " + userEmail, e);
+            throw new RuntimeException("Error assigning item to user", e);
+        }
+    }
+
+    @Override
+    public void unassignItem(Context context, Item item) throws SQLException {
+        try {
+            itemService.clearMetadata(context, item, METADATA_SCHEMA, METADATA_ELEMENT, METADATA_QUALIFIER, null);
+            itemService.update(context, item);
+
+            log.debug("Item " + item.getID() + " unassigned from all users");
+        } catch (Exception e) {
+            log.error("Error unassigning item", e);
+            throw new RuntimeException("Error unassigning item", e);
+        }
+    }
+}

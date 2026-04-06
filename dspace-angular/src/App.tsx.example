@@ -1,0 +1,336 @@
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom';
+import { AuthProvider, useAuth } from './app/contexts/AuthContext';
+import AdminDashboard from './app/components/AdminDashboard';
+import AssignedItemsModule from './app/modules/AssignedItemsModule';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
+
+/**
+ * COMPLETE EXAMPLE APPLICATION
+ * 
+ * This demonstrates how to integrate the assigned items feature
+ * into a real DSpace Angular application.
+ * 
+ * Features shown:
+ * - Authentication with context
+ * - Multiple pages/routes
+ * - Navigation based on auth state
+ * - Responsive navbar
+ * - Integration with existing UI
+ */
+
+// Example: Home/Dashboard Page
+const HomePage: React.FC = () => {
+  const { user, isAuthenticated } = useAuth();
+
+  return (
+    <div className="page-content">
+      <h1>Welcome to DSpace</h1>
+      {isAuthenticated && user ? (
+        <div>
+          <p>Hello, {user.name}! ({user.email})</p>
+          {user.isAdmin && (
+            <div className="alert alert-info">
+              ✨ You are an admin and can access advanced features.
+            </div>
+          )}
+        </div>
+      ) : (
+        <p>Please log in to access features.</p>
+      )}
+    </div>
+  );
+};
+
+// Example: Collections Browser (existing DSpace feature)
+const CollectionsPage: React.FC = () => {
+  return (
+    <div className="page-content">
+      <h1>Collections</h1>
+      <p>Browse collections in DSpace...</p>
+      {/* Your collections browsing component here */}
+    </div>
+  );
+};
+
+// Navigation Component
+const Navigation: React.FC = () => {
+  const { user, isAuthenticated, logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate('/');
+  };
+
+  return (
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+      <div className="container-fluid">
+        <Link to="/" className="navbar-brand">
+          🏛️ DSpace
+        </Link>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav me-auto">
+            <li className="nav-item">
+              <Link to="/" className="nav-link">
+                Home
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/collections" className="nav-link">
+                Collections
+              </Link>
+            </li>
+            {isAuthenticated && (
+              <li className="nav-item">
+                <Link to="/assigned-items" className="nav-link">
+                  Assigned Items
+                </Link>
+              </li>
+            )}
+            {user?.isAdmin && (
+              <li className="nav-item">
+                <Link to="/admin/dashboard" className="nav-link">
+                  Admin Dashboard
+                </Link>
+              </li>
+            )}
+          </ul>
+          <div className="navbar-text">
+            {isAuthenticated && user ? (
+              <>
+                <span className="me-3">
+                  Logged in as: <strong>{user.email}</strong>
+                </span>
+                <button
+                  className="btn btn-outline-light btn-sm"
+                  onClick={handleLogout}
+                >
+                  Logout
+                </button>
+              </>
+            ) : (
+              <Link to="/assigned-items" className="btn btn-outline-light btn-sm">
+                Login
+              </Link>
+            )}
+          </div>
+        </div>
+      </div>
+    </nav>
+  );
+};
+
+// Protected Route Component
+interface ProtectedRouteProps {
+  element: React.ReactElement;
+  requireAdmin?: boolean;
+}
+
+const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ element, requireAdmin = false }) => {
+  const { isAuthenticated, user } = useAuth();
+  const navigate = useNavigate();
+
+  React.useEffect(() => {
+    if (!isAuthenticated) {
+      navigate('/assigned-items');
+    } else if (requireAdmin && !user?.isAdmin) {
+      navigate('/');
+    }
+  }, [isAuthenticated, user, requireAdmin, navigate]);
+
+  if (!isAuthenticated) return null;
+  if (requireAdmin && !user?.isAdmin) return null;
+
+  return element;
+};
+
+// Main App Component
+const AppContent: React.FC = () => {
+  const { isAuthenticated } = useAuth();
+
+  return (
+    <Router>
+      <Navigation />
+      <div className="container-fluid">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/collections" element={<CollectionsPage />} />
+
+          {/* Assigned Items Routes */}
+          <Route
+            path="/assigned-items"
+            element={<ProtectedRoute element={<AdminDashboard />} />}
+          />
+
+          {/* Admin Routes */}
+          <Route
+            path="/admin/dashboard"
+            element={<ProtectedRoute element={<AdminDashboard />} requireAdmin={true} />}
+          />
+
+          {/* Catch-all */}
+          <Route path="*" element={<div className="alert alert-danger">Page not found</div>} />
+        </Routes>
+      </div>
+    </Router>
+  );
+};
+
+// Root App with Context Provider
+const App: React.FC = () => {
+  return (
+    <AuthProvider>
+      <AppContent />
+    </AuthProvider>
+  );
+};
+
+export default App;
+
+/**
+ * USAGE EXAMPLES
+ * 
+ * Example 1: Add to existing component
+ * ----
+ * import { useAssignedItems } from './hooks/useAssignedItems';
+ * 
+ * function MyComponent() {
+ *   const { data, loading, error } = useAssignedItems();
+ *   
+ *   return (
+ *     <div>
+ *       <h2>My Items ({data?.totalElements || 0})</h2>
+ *       {data?.content.map(item => (
+ *         <div key={item.id}>{item.title}</div>
+ *       ))}
+ *     </div>
+ *   );
+ * }
+ * 
+ * Example 2: Use auth context
+ * ----
+ * import { useAuth } from './contexts/AuthContext';
+ * 
+ * function HeaderComponent() {
+ *   const { user, logout } = useAuth();
+ *   
+ *   return (
+ *     <header>
+ *       {user && <p>Welcome, {user.name}</p>}
+ *       <button onClick={logout}>Logout</button>
+ *     </header>
+ *   );
+ * }
+ * 
+ * Example 3: Admin-only feature
+ * ----
+ * function AdminFeature() {
+ *   const { user } = useAuth();
+ *   
+ *   if (!user?.isAdmin) {
+ *     return <div>Access Denied</div>;
+ *   }
+ *   
+ *   return <BatchAssignmentForm />;
+ * }
+ * 
+ * Example 4: Use batch assignment hook
+ * ----
+ * import { useBatchAssignment } from './hooks/useAssignedItems';
+ * 
+ * function BulkOperations() {
+ *   const { assignItemsToUsers, loading, error } = useBatchAssignment();
+ *   
+ *   const handleBulkAssign = async () => {
+ *     await assignItemsToUsers(
+ *       'collection-id',
+ *       ['user1@example.com', 'user2@example.com']
+ *     );
+ *   };
+ *   
+ *   return (
+ *     <button onClick={handleBulkAssign} disabled={loading}>
+ *       {loading ? 'Assigning...' : 'Assign Items'}
+ *     </button>
+ *   );
+ * }
+ * 
+ * Example 5: Add to sidebar
+ * ----
+ * const sidebarItems = [
+ *   { label: 'My Assigned Items', path: '/assigned-items', requiresAuth: true },
+ *   { label: 'Admin Panel', path: '/admin/dashboard', requiresAdmin: true },
+ * ];
+ * 
+ * Example 6: Custom styling
+ * ----
+ * // In your CSS:
+ * .assigned-items-module {
+ *   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+ *   border-radius: 8px;
+ *   padding: 20px;
+ * }
+ * 
+ * Example 7: API error handling
+ * ----
+ * function MyComponent() {
+ *   const { data, error, refetch } = useAssignedItems();
+ *   
+ *   if (error === 'User not authenticated') {
+ *     // Redirect to login
+ *   }
+ *   
+ *   if (error?.includes('404')) {
+ *     // Item not found
+ *   }
+ *   
+ *   return (
+ *     <>
+ *       {error && <div className="alert alert-danger">{error}</div>}
+ *       <button onClick={refetch}>Retry</button>
+ *     </>
+ *   );
+ * }
+ */
+
+/**
+ * FILE STRUCTURE FOR YOUR PROJECT
+ * 
+ * src/
+ * ├── App.tsx                          (this file)
+ * ├── index.tsx
+ * ├── App.css
+ * ├── app/
+ * │   ├── contexts/
+ * │   │   └── AuthContext.tsx
+ * │   ├── hooks/
+ * │   │   └── useAssignedItems.ts
+ * │   ├── components/
+ * │   │   ├── LoginForm.tsx
+ * │   │   ├── AssignedItemsList.tsx
+ * │   │   ├── BatchAssignmentForm.tsx
+ * │   │   └── AdminDashboard.tsx
+ * │   └── modules/
+ * │       ├── AssignedItemsModule.tsx
+ * │       └── AssignedItemsModule.css
+ * └── pages/
+ *     ├── HomePage.tsx
+ *     └── CollectionsPage.tsx
+ * 
+ * INTEGRATION STEPS:
+ * 1. Replace your App.tsx with this file (or merge as shown)
+ * 2. Copy all components/hooks/contexts
+ * 3. Import CSS files
+ * 4. Run: npm start
+ * 5. Navigate to http://localhost:3000
+ */

@@ -1,0 +1,199 @@
+﻿/**
+ * The contents of this file are subject to the license and copyright
+ * detailed in the LICENSE and NOTICE files at the root of the source
+ * tree and available online at
+ *
+ * http://www.dspace.org/license/
+ */
+package org.dspace.content;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.dspace.AbstractIntegrationTestWithDatabase;
+import org.dspace.builder.CollectionBuilder;
+import org.dspace.builder.CommunityBuilder;
+import org.dspace.builder.ItemBuilder;
+import org.dspace.content.service.AssignedItemService;
+import org.dspace.content.service.ItemService;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
+/**
+ * Integration tests for AssignedItemService
+ *
+ * @author DSpace Developer
+ */
+public class AssignedItemServiceIT extends AbstractIntegrationTestWithDatabase {
+
+    @Autowired
+    private AssignedItemService assignedItemService;
+
+    @Autowired
+    private ItemService itemService;
+
+    private Community community;
+    private Collection collection;
+    private List<Item> items;
+
+    private static final String USER_EMAIL_1 = "user1@example.com";
+    private static final String USER_EMAIL_2 = "user2@example.com";
+    private static final String USER_EMAIL_3 = "user3@example.com";
+
+    @Before
+    public void setUp() throws SQLException {
+        context.turnOffAuthorisationSystem();
+
+        community = CommunityBuilder.createCommunity(context)
+                .withName("Test Community")
+                .build();
+
+        collection = CollectionBuilder.createCollection(context, community)
+                .withName("Test Collection")
+                .build();
+
+        items = new ArrayList<>();
+        for (int i = 1; i <= 9; i++) {
+            Item item = ItemBuilder.createItem(context, collection)
+                    .withTitle("Test Item " + i)
+                    .withAuthor("Author " + i)
+                    .build();
+            items.add(item);
+        }
+
+        context.restoreAuthSystemState();
+    }
+
+    @After
+    public void tearDown() throws SQLException {
+        context.turnOffAuthorisationSystem();
+    }
+
+    /**
+     * Test assigning items equally to users
+     */
+    @Test
+    public void testAssignItemsToUsers() throws SQLException {
+        List<String> userEmails = new ArrayList<>();
+        userEmails.add(USER_EMAIL_1);
+        userEmails.add(USER_EMAIL_2);
+        userEmails.add(USER_EMAIL_3);
+
+        assignedItemService.assignItemsToUsers(context, collection, userEmails);
+
+        // Verify distribution
+        int count1 = assignedItemService.countItemsAssignedToUser(context, USER_EMAIL_1);
+        int count2 = assignedItemService.countItemsAssignedToUser(context, USER_EMAIL_2);
+        int count3 = assignedItemService.countItemsAssignedToUser(context, USER_EMAIL_3);
+
+        assertEquals("User 1 should have 3 items", 3, count1);
+        assertEquals("User 2 should have 3 items", 3, count2);
+        assertEquals("User 3 should have 3 items", 3, count3);
+    }
+
+    /**
+     * Test assigning items with remainder distribution
+     */
+    @Test
+    public void testAssignItemsWithRemainder() throws SQLException {
+        List<String> userEmails = new ArrayList<>();
+        userEmails.add(USER_EMAIL_1);
+        userEmails.add(USER_EMAIL_2);
+
+        assignedItemService.assignItemsToUsers(context, collection, userEmails);
+
+        // 9 items / 2 users = 4 + 1, so first user gets 5, second gets 4
+        int count1 = assignedItemService.countItemsAssignedToUser(context, USER_EMAIL_1);
+        int count2 = assignedItemService.countItemsAssignedToUser(context, USER_EMAIL_2);
+
+        assertEquals("User 1 should have 5 items (with remainder)", 5, count1);
+        assertEquals("User 2 should have 4 items", 4, count2);
+    }
+
+    /**
+     * Test assigning single item to user
+     */
+    @Test
+    public void testAssignSingleItem() throws SQLException {
+        Item item = items.get(0);
+
+        assignedItemService.assignItemToUser(context, item, USER_EMAIL_1);
+
+        int count = assignedItemService.countItemsAssignedToUser(context, USER_EMAIL_1);
+        assertEquals("User should have 1 item", 1, count);
+    }
+
+    /**
+     * Test retrieving assigned items with pagination
+     */
+    @Test
+    public void testFindItemsAssignedToUserWithPagination() throws SQLException {
+        assignedItemService.assignItemToUser(context, items.get(0), USER_EMAIL_1);
+        assignedItemService.assignItemToUser(context, items.get(1), USER_EMAIL_1);
+        assignedItemService.assignItemToUser(context, items.get(2), USER_EMAIL_1);
+
+        List<Item> page1 = assignedItemService.findItemsAssignedToUser(context, USER_EMAIL_1, 2, 0);
+        List<Item> page2 = assignedItemService.findItemsAssignedToUser(context, USER_EMAIL_1, 2, 2);
+
+        assertEquals("First page should have 2 items", 2, page1.size());
+        assertEquals("Second page should have 1 item", 1, page2.size());
+    }
+
+    /**
+     * Test unassigning item
+     */
+    @Test
+    public void testUnassignItem() throws SQLException {
+        Item item = items.get(0);
+
+        assignedItemService.assignItemToUser(context, item, USER_EMAIL_1);
+        assertEquals("User should have 1 item", 1,
+                assignedItemService.countItemsAssignedToUser(context, USER_EMAIL_1));
+
+        assignedItemService.unassignItem(context, item);
+        assertEquals("User should have 0 items after unassignment", 0,
+                assignedItemService.countItemsAssignedToUser(context, USER_EMAIL_1));
+    }
+
+    /**
+     * Test reassigning item to different user
+     */
+    @Test
+    public void testReassignItem() throws SQLException {
+        Item item = items.get(0);
+
+        assignedItemService.assignItemToUser(context, item, USER_EMAIL_1);
+        assertEquals("User 1 should have 1 item", 1,
+                assignedItemService.countItemsAssignedToUser(context, USER_EMAIL_1));
+
+        assignedItemService.assignItemToUser(context, item, USER_EMAIL_2);
+        assertEquals("User 1 should have 0 items after reassignment", 0,
+                assignedItemService.countItemsAssignedToUser(context, USER_EMAIL_1));
+        assertEquals("User 2 should have 1 item", 1,
+                assignedItemService.countItemsAssignedToUser(context, USER_EMAIL_2));
+    }
+
+    /**
+     * Test item metadata contains assigned user
+     */
+    @Test
+    public void testItemMetadataContainsAssignedUser() throws SQLException {
+        Item item = items.get(0);
+
+        assignedItemService.assignItemToUser(context, item, USER_EMAIL_1);
+
+        item = itemService.find(context, item.getID());
+        List<MetadataValue> metadata = item.getMetadata("dc", "assigned", "user", null);
+
+        assertNotNull("Metadata should not be null", metadata);
+        assertTrue("Metadata should contain assigned user email", 
+                metadata.stream().anyMatch(m -> m.getValue().equals(USER_EMAIL_1)));
+    }
+}

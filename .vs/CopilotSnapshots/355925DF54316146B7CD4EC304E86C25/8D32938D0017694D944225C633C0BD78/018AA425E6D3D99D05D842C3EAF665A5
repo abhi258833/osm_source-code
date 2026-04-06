@@ -1,0 +1,13 @@
+﻿-- SQL migration to create dc.assigned.user metadata field
+-- This ensures the metadata field exists in the registry
+
+INSERT INTO metadatafieldregistry (metadata_schema_id, element, qualifier, scope_note)
+SELECT ms.metadata_schema_id, 'assigned', 'user', 'Email of user to whom this item is assigned'
+FROM metadataschemaregistry ms
+WHERE ms.short_id = 'dc'
+  AND NOT EXISTS (
+    SELECT 1 FROM metadatafieldregistry mfr
+    WHERE mfr.metadata_schema_id = ms.metadata_schema_id
+      AND mfr.element = 'assigned'
+      AND mfr.qualifier = 'user'
+  );
